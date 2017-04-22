@@ -1,11 +1,13 @@
 #ifndef TankDrive_H
 #define TankDrive_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "../Utilities/WVPIDController.h"
 #include "WPILib.h"
 
-class TankDrive : public CommandBase {
+using namespace frc;
+
+class TankDrive: public CommandBase {
 public:
 	TankDrive();
 	void Initialize();

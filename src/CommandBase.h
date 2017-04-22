@@ -6,7 +6,6 @@
 
 #include <Commands/Command.h>
 #include "Subsystems/DriveTrain.h"
-#include "Subsystems/UltrasonicSensor.h"
 #include "OI.h"
 
 
@@ -21,8 +20,7 @@ public:
 	CommandBase(const std::string& name);
 	CommandBase() = default;
 
-	static DriveTrain*  drive;
-	static UltrasonicSensor* ultrasonic;
+	static DriveTrain* drive;
 
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<OI> oi;
