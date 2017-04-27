@@ -2,23 +2,25 @@
 #define DriveTrain_H
 
 #include <WPILib.h>
+//#include "../CommandBase.h"
 #include <Commands/Subsystem.h>
-#include "../Commands/Tankdrive.h"
 
-class DriveTrain : public Subsystem {
+
+
+class DriveTrain : public frc::Subsystem {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	Talon* left;
-	Talon* right;
-	Encoder* encoderLeft;
-	Encoder* encoderRight;
+	frc::Talon* left;
+	frc::Talon* right;
+	frc::Encoder* encoderLeft;
+	frc::Encoder* encoderRight;
 	float mult;
 	int ticksToDistance;
-	BuiltInAccelerometer* accel;
+	frc::BuiltInAccelerometer* accel;
 
 public:
-	Gyro* gyro;
+	frc::Gyro* gyro;
 
 	DriveTrain();
 	~DriveTrain();

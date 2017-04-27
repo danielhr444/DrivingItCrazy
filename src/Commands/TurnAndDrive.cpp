@@ -29,7 +29,6 @@ void TurnAndDrive::Execute()
     std::cout << "curr_dist: " << current_angle << std::endl;
    std::cout << "pwm: " << pwm_val << std::endl;
 
-
     //std::cout << "Gyro PV: " << current_angle << std::endl;
    // std::cout << "Gyro error: " << anglePid->GetError() << std::endl;
 

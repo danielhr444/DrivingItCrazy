@@ -7,7 +7,8 @@
 
 using namespace frc;
 
-class TankDrive: public CommandBase {
+
+class TankDrive : public CommandBase{
 public:
 	TankDrive();
 	void Initialize();

@@ -1,8 +1,8 @@
 #include "DriveTrain.h"
 #include "../RobotMap.h"
 #include <math.h>
-#include "../RobotMap.h"
 #include "../CommandBase.h"
+#include "../Commands/Tankdrive.h"
 
 using namespace frc;
 
@@ -176,7 +176,7 @@ double DriveTrain::getRightEncoderDistance()
 double DriveTrain::getGyroAngle()
 {
    // return axis->getzAxis();
-	gyro->GetAngle();
+	return gyro->GetAngle();
 }
 
 void DriveTrain::resetGyro()

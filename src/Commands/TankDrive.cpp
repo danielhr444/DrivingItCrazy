@@ -10,12 +10,16 @@ TankDrive::TankDrive()
 void TankDrive::Initialize()
 {
     drive->resetGyro();
+
 }
 
 void TankDrive::Execute()
 {
     double yLeftRaw = oi->getDriveStickLeft()->GetY();
     double yRightRaw = oi->getDriveStickRight()->GetY();
+
+    std::cout << yLeftRaw << std::endl;
+    std::cout << yRightRaw << std::endl;
 
     double yLeftAdjusted  = mapToCubic(0.3, 0, yLeftRaw);
     double yRightAdjusted = mapToCubic(0.3, 0, yRightRaw);
