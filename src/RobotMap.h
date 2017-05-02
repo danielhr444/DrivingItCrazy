@@ -25,7 +25,8 @@ const double ENCODER_RIGHT_2=1;
 const double ENCODER_LEFT_1=2;
 const double ENCODER_LEFT_2=3;
 
-const int MOTORPORT = 0;
+const int MOTORPORTLEFT = 0;
+const int MOTORPORTRIGHT = 1;
 
 
 #endif  // ROBOTMAP_H

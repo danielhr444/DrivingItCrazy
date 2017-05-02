@@ -6,12 +6,16 @@
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
-
 #include "CommandBase.h"
+#include "Commands/DriveForward.h"
+
 
 class Robot: public frc::IterativeRobot {
 public:
 	void RobotInit() override {
+
+		CommandBase::initialize();
+		driveCommand = new DriveForward(10);
 
 		// chooser.AddObject("My Auto", new MyAutoCommand());
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
@@ -50,15 +54,18 @@ public:
 			autonomousCommand.reset(new ExampleCommand());
 		} */
 
-		autonomousCommand.reset(chooser.GetSelected());
+//		driveCommand.reset(chooser.GetSelected());
 
-		if (autonomousCommand.get() != nullptr) {
-			autonomousCommand->Start();
+		if (driveCommand != nullptr) {
+			driveCommand->Start();
 		}
 	}
 
 	void AutonomousPeriodic() override {
 		frc::Scheduler::GetInstance()->Run();
+
+
+
 	}
 
 	void TeleopInit() override {
@@ -73,6 +80,8 @@ public:
 
 	void TeleopPeriodic() override {
 		frc::Scheduler::GetInstance()->Run();
+
+
 	}
 
 	void TestPeriodic() override {
@@ -80,6 +89,8 @@ public:
 	}
 
 private:
+	//OI* oi;
+	frc::CommandGroup* driveCommand;
 	std::unique_ptr<frc::Command> autonomousCommand;
 	frc::SendableChooser<frc::Command*> chooser;
 };

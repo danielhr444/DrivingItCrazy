@@ -1,4 +1,4 @@
-#include "DriveTrain.h"
+//#include "DriveTrain.h"
 #include "../RobotMap.h"
 #include <math.h>
 #include "../CommandBase.h"
@@ -8,18 +8,23 @@ using namespace frc;
 
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
-DriveTrain::DriveTrain() : Subsystem("DriveTrain"), left(new Talon(0)), right(new Talon(1)),
-encoderLeft(new Encoder(ENCODER_LEFT_1, ENCODER_LEFT_2)),
-encoderRight(new Encoder(ENCODER_RIGHT_1, ENCODER_RIGHT_2)), mult(1.0),
-ticksToDistance(114), // 112 < ticksToDistance < 117
-accel()
+DriveTrain::DriveTrain() :
+		Subsystem("DriveTrain"), left(new Talon(0)), right(new Talon(1)), encoderLeft(
+				new Encoder(ENCODER_LEFT_1, ENCODER_LEFT_2)), encoderRight(
+				new Encoder(ENCODER_RIGHT_1, ENCODER_RIGHT_2)), mult(1.0), ticksToDistance(
+				114), // 112 < ticksToDistance < 117
+		accel()
 {
+	gyro = new frc::ADXRS450_Gyro(SPI::kOnboardCS0);
+	std::cout << "why" << std::endl;
 	 encoderLeft->SetDistancePerPulse(1.0);
 	 encoderRight->SetDistancePerPulse(1.0);
 	 left->SetInverted(true);
 	 right->SetInverted(true);
 	 gyro->Calibrate();
 	 gyro->Reset();
+	// left->Set(200);
+	// right->Set(20);
 }
 
 DriveTrain::~DriveTrain()

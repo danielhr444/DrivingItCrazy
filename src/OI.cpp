@@ -4,9 +4,9 @@
 using namespace frc;
 
 OI::OI():
-	driveStickLeft(new Joystick(2)), driveStickRight(new Joystick(1))
+	driveStickLeft(new Joystick(0)), driveStickRight(new Joystick(1))
 {
-
+	std::cout << "work" << std::endl;
 }
 
 Joystick* OI::getDriveStickLeft()
